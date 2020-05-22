@@ -255,8 +255,33 @@ class CalendarController {
     _visibleDays.value = _getVisibleDays();
     _decrementPage();
   }
+  void _selectPrevious() {
+    if (calendarFormat == CalendarFormat.month) {
+      _selectPreviousMonth();
+    } else if (calendarFormat == CalendarFormat.twoWeeks) {
+      _selectPreviousTwoWeeks();
+    } else {
+      _selectPreviousWeek();
+    }
+
+    _visibleDays.value = _getVisibleDays();
+    _decrementPage();
+  }
 
   void selectNext() {
+    if (calendarFormat == CalendarFormat.month) {
+      _selectNextMonth();
+    } else if (calendarFormat == CalendarFormat.twoWeeks) {
+      _selectNextTwoWeeks();
+    } else {
+      _selectNextWeek();
+    }
+
+    _visibleDays.value = _getVisibleDays();
+    _incrementPage();
+  }
+  
+   void _selectNext() {
     if (calendarFormat == CalendarFormat.month) {
       _selectNextMonth();
     } else if (calendarFormat == CalendarFormat.twoWeeks) {
